@@ -1,0 +1,14 @@
+def jisuanhs(text,char):#创建函数：计算
+    count=0#新建count赋值0
+    for c in text:#遍历text里每一个字母赋值c
+        if c == char:#如果C恒等char
+            count+=1#count增加1
+    return count#计算函数返回count值
+
+filename=input("请输入文件名")#赋值filename文件名称
+with open(filename,mode="r",encoding="utf-8") as f:#用with函数打开文件不用close，重命名f
+    text=f.read()#读取f赋值text
+
+for char in "abcdefghijklmnopqrstuvwxyz":#遍历26个字母给char
+    percent=100*jisuanhs(text,char)/len(text)#len函数计算文字总数，计算函数计算含有char字符总数，*100给百分比
+    print("{0}-{1}%".format(char,round(percent,2)))#输出，赋值{0}{1}分别为char和percent的2位小数点
